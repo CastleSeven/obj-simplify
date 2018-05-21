@@ -1,6 +1,6 @@
 # obj-simplify
 
-There are a lot of authoring tools that produce OBJ files. The [spec](http://www.martinreddy.net/gfx/3d/OBJ.spec) is quite simple, but it still leaves a lot of room to export geometry and meshe/material combos that are not always optimal for 3D rendering engines. Artists and the exporters can also omit doing simple cleanup operations that would reduce file size, making loading and rendering the model faster.
+There are a lot of authoring tools that produce OBJ files. The [spec](http://www.martinreddy.net/gfx/3d/OBJ.spec) is quite simple, but it still leaves a lot of room to export geometry and mesh/material combos that are not always optimal for 3D rendering engines. Artists and the exporters can also omit doing simple cleanup operations that would reduce file size, making loading and rendering the model faster.
 
 The biggest problem in an average OBJ export is the amount of draw calls that can be reduced trivially, but is rarely done in the authoring tool.
 
@@ -33,14 +33,14 @@ All found geometry from the source file is written at the top of the file, skipp
 
 ## three.js
 
-I have contributed to the OBJ parser/loader in three.js and know it very well. I know what kind of files it has performance problems with and how to try to avoid them. I have also implemented some of the optimization done in this tool in JS on the client side, after the model has been loaded. But even if doable, its a waste of time to do them on each load for each user. Also certain optimizations can not be done on the client side.  That being said there is nothing spesific in the tool for three.js, it can help as much in other rendering engines. This tool can help you get:
+I have contributed to the OBJ parser/loader in three.js and know it very well. I know what kind of files it has performance problems with and how to try to avoid them. I have also implemented some of the optimization done in this tool in JS on the client side, after the model has been loaded. But even if doable, its a waste of time to do them on each load for each user. Also certain optimizations can not be done on the client side.  That being said there is nothing specific in the tool for three.js, it can help as much in other rendering engines. This tool can help you get:
 
 * Faster load over the network
  * Reduce filesize, possibly better compression e.g. with gzip (see `-gzip`).
 * Faster loading by the parser 
  * Drop duplicates, reduce files size in general to parse less lines.
- * Arraging file output in a way that *might* benefit V8 etc. to optimize the execution better.
-* Faster rendering 
+ * Arranging file output in a way that *might* benefit V8 etc. to optimize the execution better.
+* Faster rendering
  * Remove patterns that result in using `THREE.MultiMaterial`.
  * Reduce draw calls.
 
