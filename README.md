@@ -14,12 +14,12 @@ This tool automates the following optimization and simplification steps.
 
 This tool can be destructive and contain bugs, it will not let you overwrite the source file. Keep your original files intact. The implementation does not support all the OBJ features out there. It is meant to be used on 3D-models
  that declare faces with `f`. All variants of face declarations in the spec are supported. Lines `l` and points `p` are also preserved and the same deduplication logic is applied to them.
- 
+
  If a particular line in the input file is not supported by the parser, the tool will exit and print a link to submit an issue. If you are submitting an issue please attach a file that can reproduce the bug.
 
 ## Merging duplicate geometry
 
-Use `-eplison` to tune vector equality checks, the default is `1e-6`. This can have a positive impact especially on large OBJ files. Basic cleanup like trimming trailing zeros and converting -0 into 0 to reduce file size is also executed.
+Use `-epsilon` to tune vector equality checks, the default is `1e-6`. This can have a positive impact especially on large OBJ files. Basic cleanup like trimming trailing zeros and converting -0 into 0 to reduce file size is also executed.
 
 ## Object merging and multi-materials
 
@@ -72,7 +72,7 @@ obj-simplify {
   "Output": "test.simplified.obj",
   "Workers": 32,
   "Gzip": -1,
-  "Eplison": 1e-06,
+  "Epsilon": 1e-06,
   "Strict": false,
   "Stdout": false,
   "Quiet": false,
